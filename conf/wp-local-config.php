@@ -10,6 +10,8 @@ if ( isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' === $_SERVER['HTTP_X
 	$_SERVER['HTTPS'] = 'on';
 }
 
+define( 'UPLOADS', 'wp-content/images' );
+
 // Indicate VIP Go environment.
 define( 'VIP_GO_ENV', 'local' );
 

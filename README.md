@@ -5,43 +5,41 @@ development. It provides WordPress, MariaDB, Memcached, WP-CLI, and PHPUnit. It
 further adds VIP Go mu-plugins and a [Photon][photon] server to closely mimic a
 VIP Go environment.
 
-# "Classic" VIP and non-VIP
-
-For an environment suitable for "classic" VIP development, check out my
-[docker-wordpress-vip][vip] repo.
-
-If you only need a Docker WordPress development environment for a single plugin
-or theme, my [docker-compose-wordpress][simple] repo is a simpler place to start.
-
-
 ## Set up
 
 1. Clone or fork this repo.
 
-2. Add `project.test` to your `/etc/hosts` file:
+2. Add `docker.local` to your `/etc/hosts` file:
 
    ```
-   127.0.0.1 localhost project.test
+   127.0.0.1 localhost docker.local
+   ```
+
+   ```
+   WINDOWS with docker-toolkit @file-location: C:\Windows\System32\Drivers\etc\hosts
+   192.168.99.100	docker.local	www.docker.local
    ```
 
 3. Edit `update.sh` to provide your VIP Go repo in the `wp_repo` variable.
+    NOTE: we haven't had our VIP Go git repo setup, so just ignore this and clone the Vip Go Skeleton.
 
 4. Run `./setup.sh`.
 
-5. Run `docker-compose up -d`.
+5. As we haven't had our Vip Go Git Repo setup, cd into `./src/wp/themes` and git clone our wallst_2019 repo from bitbucket.
+    After clone, run `composer run dev` from the wallst_2019 dir (sets up autoloader, theme, etc).
 
+6. Run `docker-compose up -d`.
 
-## Install WordPress
+Before running the following, may want to comment out the import, it is huge!
+Then if just want to quick dev env, just import the latest xml file (247wallst.201.xml.
 
-```sh
-docker-compose run --rm wp-cli install-wp
-```
+7. Run `./wallst-install.sh`. 
 
-Log in to `http://project.test/wp-admin/` with `wordpress` / `wordpress`.
-
-Alternatively, you can navigate to `http://project.test/` and manually perform
-the famous five-second install.
-
+NOTE: Sometimes the sql server won't connect right away, takes awhile.
+Could be a tcp issue, or the docker.sock volume isn't loading.
+It's hard to say because it fixed itself (could just be initializing).
+COMPOSE_CONVERT_WINDOWS_PATHS=1
+-might help but can't confirm/.
 
 ## WP-CLI
 

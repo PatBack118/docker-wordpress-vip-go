@@ -6,7 +6,7 @@ wp core install \
   --admin_user="wordpress" \
   --admin_password="wordpress" \
   --admin_email="admin@example.com" \
-  --url="http://project.test" \
+  --url="http://docker.local" \
   --skip-email
 
 # Update permalink structure.

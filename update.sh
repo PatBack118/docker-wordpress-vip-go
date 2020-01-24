@@ -35,3 +35,14 @@ do
     popd >/dev/null && \
     echo ""
 done
+
+# These are the old VIP plugins that are used in our theme, may not need
+# NOTE: make sure old vip-init.php isn't being required in the wallst-2019->funcitons file anymore
+# Clone VIP plugins.
+if [ ! -d "src/wp/plugins/.svn" ]; then
+  echo "Cloning VIP plugins to \"src/wp/plugins\"...."
+  rm -rf src/wpcom-plugins/
+  svn co --quiet --trust-server-cert --non-interactive https://vip-svn.wordpress.com/plugins src/wp/plugins
+fi
+svn up src/wp/plugins
+echo ""
