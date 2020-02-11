@@ -34,11 +34,18 @@ define( 'DISALLOW_FILE_MODS', true );
 // This provides the host and port of the development Memcached server. The host
 // should match the container name in `docker-compose.memcached.yml`. If you
 // aren't using Memcached, it will simply be ignored.
+
+// VIP GO (old memcache) settings
 $memcached_servers = array(
-	array(
-		'memcached',
-		11211,
-	),
+	'memcached:11211',
 );
+
+// Newer memcached (with a 'd') settings
+// $memcached_servers = array(
+// 	array(
+// 		'memcached',
+// 		11211,
+// 	),
+// );
 
 // Put project-specific config below this line.
