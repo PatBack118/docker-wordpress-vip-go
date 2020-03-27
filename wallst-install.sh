@@ -10,7 +10,7 @@ docker-compose run --rm wp-cli wp core install \
   --skip-email
 
 # Update permalink structure.
-docker-compose run --rm wp-cli wp option update permalink_structure "/%year%/%monthnum%/%postname%/" --skip-themes --skip-plugins
+docker-compose run --rm wp-cli wp option update permalink_structure "/%category%/%year%/%monthnum%/%day%/%postname%/" --skip-themes --skip-plugins
 
 # Update Database with Exported files
 docker-compose run --rm wp-cli wallst-import
