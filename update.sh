@@ -7,7 +7,7 @@ git fetch && git pull origin master && echo ""
 mkdir -p src
 
 # Edit this value to your VIP Go repo.
-wp_repo="Automattic/vip-go-skeleton"
+wp_repo=""
 
 # Clone git repos.
 for repo in \
@@ -36,3 +36,6 @@ do
     echo ""
 done
 
+# Add the two non-tracked folders for local wp uploads
+mkdir -p src/wp/uploads
+mkdir -p src/wp/tmp
