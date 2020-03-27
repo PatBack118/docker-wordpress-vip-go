@@ -21,10 +21,13 @@ if ( file_exists( __DIR__ . '/wp-content/vip-config/vip-config.php' ) ) {
     require_once( __DIR__ . '/wp-content/vip-config/vip-config.php' );
 }
 
-define( 'UPLOADS', 'wp-content/images' );
-
 // Indicate VIP Go environment.
 define( 'VIP_GO_ENV', 'local' );
+
+// Enable Jetpack on local environment
+define( 'JETPACK_DEV_DEBUG', true );
+
+define( 'WPCOM_VIP_USE_JETPACK_PHOTON', true );
 
 // Disable automatic updates.
 define( 'AUTOMATIC_UPDATER_DISABLED', true );
