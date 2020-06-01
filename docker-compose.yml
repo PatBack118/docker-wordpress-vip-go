@@ -13,6 +13,7 @@ services:
     depends_on:
       - "mysql"
     links:
+      - mysql
       - memcached
     networks:
       - "front"
