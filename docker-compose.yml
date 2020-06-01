@@ -32,7 +32,7 @@ services:
       - "./src/wp/private:/var/www/html/wp-content/private"
       - "./src/wp/themes:/var/www/html/wp-content/themes"
       - "./src/wp/vip-config:/var/www/html/wp-content/vip-config"
-      - "./src/vip-go-mu-plugins/drop-ins/object-cache/object-cache.php:/var/www/html/wp-content/object-cache.php"
+      - "./src/vip-go-mu-plugins/drop-ins/object-cache/object-cache.php:/var/www/html/wp-content/object-cache.php:ro"
     restart: always
   wp-cli:
     image: "wordpress:cli-${WP_CLI_VERSION:-2.2.0}-php${PHP_VERSION:-7.3}"
