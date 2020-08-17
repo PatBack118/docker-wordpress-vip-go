@@ -2,7 +2,7 @@ version: "3"
 
 services:
   wordpress:
-    image: patback118/wordpressvip-memcachephp:firstpush
+    image: patback118/wordpressvip-memcachephp:fivefive
     environment:
       HTTPS_METHOD: "nohttps"
       VIRTUAL_HOST: "${DOCKER_DEV_DOMAIN}"
