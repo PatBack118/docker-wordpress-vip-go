@@ -47,7 +47,6 @@ services:
     volumes:
       - "wp:/var/www/html:rw"
       - "./bin/install-wp.sh:/usr/local/bin/install-wp:ro"
-      - "./data/247wallst:/usr/local/247wallst"
       - "./conf/php-local.ini:/usr/local/etc/php/conf.d/local.ini:ro"
       - "./conf/wp-local-config.php:/usr/local/etc/php/autoprepend.php:ro"
       - "./src/vip-go-mu-plugins:/var/www/html/wp-content/mu-plugins"
