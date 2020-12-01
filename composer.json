@@ -1,0 +1,14 @@
+{
+    "scripts": {
+        "phpcs-vipgo": "vendor/bin/phpcs --standard=WordPress-VIP-Go -sp --basepath=. --ignore=vendor",
+        "phpcs-wpcom": "vendor/bin/phpcs --standard=WordPressVIPMinimum -sp --basepath=. --ignore=vendor"
+    },
+    "scripts-descriptions": {
+        "phpcs-vipgo": "Runs the VIP GO standard Code Sniffer. Run from root and specify the folder path. ex: composer run phpcs-vipgo src/wp/themes",
+        "phpcs-wpcom": "Runs the Wordpress.com standard Code Sniffer. Run from root and specify the folder path. ex: composer run phpcs-wpcom src/wp/themes"
+    },
+    "require-dev": {
+        "automattic/vipwpcs": "^2.2",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0"
+    }
+}
