@@ -5,6 +5,8 @@ development. It provides WordPress, MariaDB, Memcached, WP-CLI, and PHPUnit. It
 further adds VIP Go mu-plugins and a [Photon][photon] server to closely mimic a
 VIP Go environment.
 
+Will also add VIP GO and WPCOM PHP Codesniffer rules to be run through composer.
+
 ## For a more recent DOCKER setup of a standard Wordpress site:
 
 https://github.com/joshbetz/docker-wp
@@ -25,19 +27,15 @@ https://github.com/joshbetz/docker-wp
    ```
 
 3. Edit `update.sh` to provide your VIP Go repo in the `wp_repo` variable.
-    NOTE: we haven't had our VIP Go git repo setup, so just ignore this and clone the Vip Go Skeleton.
+    NOTE: If you don't have a VIP Go git repo setup, just ignore this and clone the Vip Go Skeleton.
 
 4. Run `./setup.sh`.
 
-5. As we haven't had our Vip Go Git Repo setup, cd into `./src/wp/themes` and git clone our wallst_2019 repo from bitbucket.
-    After clone, run `composer run dev` from the wallst_2019 dir (sets up autoloader, theme, etc).
+5. If you need additional themes to be added, cd to the src/wp/themes folder and add or clone any additional themes you may need.
 
 6. Run `docker-compose up -d`.
 
-Before running the following, may want to comment out the import, it is huge!
-Then if just want to quick dev env, just import the latest xml file (247wallst.201.xml.
-
-7. Run `./wallst-install.sh`. 
+7. Run `./wp-init-install.sh`. 
 
 NOTE: Sometimes the sql server won't connect right away, takes awhile.
 Could be a tcp issue, or the docker.sock volume isn't loading.
@@ -53,6 +51,25 @@ You will probably want to create a shell alias for this:
 docker-compose run --rm wp-cli wp [command]
 ```
 
+## Setting up Codesniffer
+
+Codesniffer is a great way to find and fix any issues that may exist in your code before commiting to VIP servers.
+
+To get the Codesniffer installed, run the following from the root folder:
+
+```sh
+composer update
+```
+
+Once that has installed, you can now run the scripts defined in composer.json.
+
+Examples:
+```sh
+composer run phpcs-vipgo path/to/your/file/or/directory
+```
+
+See here for additional notes on codesniffer from vip:
+https://wpvip.com/documentation/developing-with-vip/how-to-use-php_codesniffer-during-vip-development/
 
 ## Running tests (PHPUnit)
 
